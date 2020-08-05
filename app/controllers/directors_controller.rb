@@ -12,9 +12,6 @@ class DirectorsController < ApplicationController
     matching_directors = Director.where({ :id => the_id })
     @the_director = matching_directors.at(0)
 
-    matching_movies = Movie.where({ :director_id => @the_director.id })
-    @filmography = matching_movies.order({ :year => :asc })
-
     render({ :template => "director_templates/show.html.erb" })
   end
 
